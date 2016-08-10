@@ -1,14 +1,22 @@
 <?php
 
+if (!isset($argv[1])) {
+  echo "Hay que pasar el archivo con la ruta completa!";
+  exit(1);
+}
+
+$xmlFile = $argv[1];
+
 try{
   $library = new DOMDocument();
   $library->validateOnParse = true;
 
-  if ($library->load('/home/juancho/02.distribuida2/DTD/01.basico/quilmes.xml')) {
+  if ($library->load($xmlFile)) {
     if ($library->validate()) {
       echo "DTD Valido!";
     } else {
       echo "ATENCION! -> DTD NO VALIDO";
+      exit(1);
     }
   } else {
     echo "XML erroneo";
@@ -16,9 +24,10 @@ try{
 
 
 } catch (Exception $e) {
-  die ('DTD Validation failure.');
+  echo "ATENCION! -> DTD NO VALIDO";
+  exit(1);
 }
-
+exit(0);
 
 
  ?>
