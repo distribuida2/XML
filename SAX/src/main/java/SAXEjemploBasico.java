@@ -24,13 +24,16 @@ public class SAXEjemploBasico {
         XMLReader reader = XMLReaderFactory.createXMLReader();
         reader.setContentHandler(handler);
         reader.setErrorHandler(handler);
+        reader.setProperty("http://xml.org/sax/properties/lexical-handler", handler);
 
-        SAXFilter saxFilter = new SAXFilter();
+        reader.parse(new InputSource(inputStream));
+
+        /*SAXFilter saxFilter = new SAXFilter();
         saxFilter.setParent(reader);
         saxFilter.setContentHandler(handler);
-        saxFilter.setErrorHandler(handler);
+        saxFilter.setErrorHandler(handler);*/
 
-        saxFilter.parse(new InputSource(inputStream));
+        //saxFilter.parse(new InputSource(inputStream));
 
     }
 }
