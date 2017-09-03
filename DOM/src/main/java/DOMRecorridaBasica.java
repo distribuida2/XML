@@ -26,6 +26,8 @@ public class DOMRecorridaBasica {
         InputStream inputStream = classLoader.getResourceAsStream("propiedades_original.xml");
         // Procesamos el fichero XML
         parser.parse(new InputSource(inputStream));
+
+
         Document doc = parser.getDocument();
 
         Element root = doc.getDocumentElement();
@@ -34,7 +36,9 @@ public class DOMRecorridaBasica {
 
         for(int i=0;i<children.getLength();i++){
             Node node = children.item(i);
-            System.out.println(node.getNodeName());
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                System.out.println(node.getNodeName());
+            }
         }
 
     }

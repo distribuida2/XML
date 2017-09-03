@@ -24,7 +24,7 @@ public class DOMTipos {
         DOMParser parser = new DOMParser();
 
         ClassLoader classLoader = DOMTipos.class.getClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream("propiedades_original.xml");
+        InputStream inputStream = classLoader.getResourceAsStream("quilmes_2012.xml");
         // Procesamos el fichero XML
         parser.parse(new InputSource(inputStream));
         Document doc = parser.getDocument();
