@@ -1,9 +1,6 @@
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import explorer.DOMExplorer;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -15,7 +12,7 @@ import java.io.InputStream;
  * jlagostena@bitsense.com.ar
  * .
  */
-public class DOMTipos {
+public class DOMExplorerBásico {
 
 
     public static void main(String [] args) throws IOException, SAXException {
@@ -23,7 +20,7 @@ public class DOMTipos {
         // Creamos el parseador
         DOMParser parser = new DOMParser();
 
-        ClassLoader classLoader = DOMTipos.class.getClassLoader();
+        ClassLoader classLoader = DOMExplorerBásico.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream("quilmes_2012.xml");
         // Procesamos el fichero XML
         parser.parse(new InputSource(inputStream));
