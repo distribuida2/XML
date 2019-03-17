@@ -6,8 +6,7 @@
 <!ELEMENT cuentas_corrientes (cuenta_corriente)*>
 
 <!ELEMENT caja_ahorro (balance)>
-<!ATTLIST caja_ahorro id ID #REQUIRED
-                          interes CDATA #REQUIRED>
+<!ATTLIST caja_ahorro id ID #REQUIRED interes CDATA #REQUIRED>
 
 <!ELEMENT cuenta_corriente (balance)>
 
