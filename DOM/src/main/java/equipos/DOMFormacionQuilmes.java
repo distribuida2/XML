@@ -1,12 +1,14 @@
 package equipos;
 
-import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
@@ -22,15 +24,13 @@ import java.util.stream.Stream;
 public class DOMFormacionQuilmes {
 
 
-    public static void main(String [] args) throws IOException, SAXException {
+    public static void main(String [] args) throws IOException, SAXException, ParserConfigurationException {
         //cargamos el XML en un input stream
         ClassLoader classLoader = DOMFormacionQuilmes.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream("quilmes_2012.xml");
         // Creamos el parser y parseamos el input stream
-        DOMParser parser = new DOMParser();
-        parser.parse(new InputSource(inputStream));
-
-        Document doc = parser.getDocument();
+        DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        Document doc = builder.parse(new InputSource(inputStream));
 
         NodeList nodeList = doc.getElementsByTagName("visitante");
         final Node visitante = nodeList.item(0);

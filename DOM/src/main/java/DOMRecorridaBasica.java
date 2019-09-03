@@ -18,7 +18,7 @@ import java.io.InputStream;
 public class DOMRecorridaBasica {
 
 
-    public static void main(String [] args) throws IOException, SAXException, Exception {
+    public static void main(String [] args) throws Exception {
 
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
