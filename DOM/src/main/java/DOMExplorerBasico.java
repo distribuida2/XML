@@ -9,10 +9,10 @@ import java.io.InputStream;
 
 /**
  * Created by Juan Lagostena on 04/09/16
- * jlagostena@bitsense.com.ar
+ * jplagostena@gmail.com
  * .
  */
-public class DOMExplorerBásico {
+public class DOMExplorerBasico {
 
 
     public static void main(String [] args) throws IOException, SAXException {
@@ -20,7 +20,7 @@ public class DOMExplorerBásico {
         // Creamos el parseador
         DOMParser parser = new DOMParser();
 
-        ClassLoader classLoader = DOMExplorerBásico.class.getClassLoader();
+        ClassLoader classLoader = DOMExplorerBasico.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream("quilmes_2012.xml");
         // Procesamos el fichero XML
         parser.parse(new InputSource(inputStream));

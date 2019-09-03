@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 /**
  * Created by Juan Lagostena on 04/09/16
- * jlagostena@bitsense.com.ar
+ * jplagostena@gmail.com
  * .
  */
 public class DOMRecorridaBasica {
