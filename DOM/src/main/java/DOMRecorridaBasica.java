@@ -1,4 +1,3 @@
-import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -6,6 +5,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -17,18 +18,14 @@ import java.io.InputStream;
 public class DOMRecorridaBasica {
 
 
-    public static void main(String [] args) throws IOException, SAXException {
+    public static void main(String [] args) throws IOException, SAXException, Exception {
 
-        // Creamos el parseador
-        DOMParser parser = new DOMParser();
+        DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
         ClassLoader classLoader = DOMRecorridaBasica.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream("propiedades_original.xml");
         // Procesamos el fichero XML
-        parser.parse(new InputSource(inputStream));
-
-
-        Document doc = parser.getDocument();
+        Document doc = builder.parse(new InputSource(inputStream));
 
         Element root = doc.getDocumentElement();
         // Iteramos sobre sus children

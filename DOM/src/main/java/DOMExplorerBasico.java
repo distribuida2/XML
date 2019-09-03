@@ -1,9 +1,11 @@
-import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 import explorer.DOMExplorer;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -15,16 +17,15 @@ import java.io.InputStream;
 public class DOMExplorerBasico {
 
 
-    public static void main(String [] args) throws IOException, SAXException {
+    public static void main(String [] args) throws ParserConfigurationException, IOException, SAXException {
 
-        // Creamos el parseador
-        DOMParser parser = new DOMParser();
+        // Creamos el parser
+        DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
         ClassLoader classLoader = DOMExplorerBasico.class.getClassLoader();
         InputStream inputStream = classLoader.getResourceAsStream("quilmes_2012.xml");
         // Procesamos el fichero XML
-        parser.parse(new InputSource(inputStream));
-        Document doc = parser.getDocument();
+        Document doc = builder.parse(new InputSource(inputStream));
 
         DOMExplorer domExplorer = new DOMExplorer(doc);
         domExplorer.traversePreOrder();

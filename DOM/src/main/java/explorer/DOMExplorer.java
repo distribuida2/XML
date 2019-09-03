@@ -1,9 +1,10 @@
 package explorer;
 
-import com.sun.xml.internal.ws.util.xml.NodeListIterator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+
+import java.util.List;
 
 /**
  * Created by Juan Lagostena on 04/09/16
@@ -24,11 +25,8 @@ public class DOMExplorer {
 
     private void traversePreOrder(Node root) {
         processNode(root, new PrinterNodeProcessor());
-        NodeListIterator nodeListIterator = new NodeListIterator(root.getChildNodes());
-        while (nodeListIterator.hasNext()) {
-            traversePreOrder((Node)nodeListIterator.next());
-        }
-
+        List<Node> nodes = XmlUtil.asList(root.getChildNodes());
+        nodes.forEach(this::traversePreOrder);
     }
 
     private void processNode(Node node, NodeProcessor task) {
