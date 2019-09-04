@@ -32,7 +32,7 @@
             <garage>0</garage>
         </property>
     </venta>
-    <!-- alquiler en pesos -->
+    <!-- alquiler en pesos  -->
     <alquiler currency="ARS">
         <property ref="2" />
         <property id="3">
