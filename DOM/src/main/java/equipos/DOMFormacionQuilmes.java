@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,13 +37,21 @@ public class DOMFormacionQuilmes {
         final Node visitante = nodeList.item(0);
         Node formacion = getUniqueNodeByName(visitante.getChildNodes(), "formacion");
         Collection<Node> quilmesPlayersNodes = getNodesByName(formacion.getChildNodes(), "jugador");
-        quilmesPlayersNodes.stream().forEach( n -> System.out.println(n.getFirstChild().getNodeValue()));
+        for (Node player : quilmesPlayersNodes) {
+            System.out.println(player.getFirstChild().getNodeValue());
+        }
     }
 
+    //hacerlo más fácil
     static Collection<Node> getNodesByName(NodeList nodeList, String name) {
-        Stream<Node> nodeStream = IntStream.range(0, nodeList.getLength()).mapToObj(nodeList::item);
-        List<Node> nodesFound = nodeStream.filter(n -> n.getNodeName().equals(name)).collect(Collectors.toList());
-        return nodesFound;
+        List<Node> nodeListToReturn = new ArrayList<>();
+        for (int idx = 0 ; idx < nodeList.getLength(); idx++) {
+            Node node = nodeList.item(idx);
+            if (node.getNodeName().equals(name)) {
+                nodeListToReturn.add(node);
+            }
+        }
+        return nodeListToReturn;
     }
 
     static Node getUniqueNodeByName(NodeList nodeList, String name) {
