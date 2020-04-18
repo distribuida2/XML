@@ -20,12 +20,13 @@
 
 <xs:element name="formacion">
   <xs:complexType>
-    <xs:all>
-      <xs:element name="arquero" type="fcion:jugador"  />
-      <xs:element name="defensor" type="fcion:jugador" />
-      <xs:element name="medio" type="fcion:jugador" />
-    </xs:all>
+    <xs:sequence>
+      <xs:element name="arquero" type="fcion:jugador" maxOccurs="1"/>
+      <xs:element name="defensor" type="fcion:jugador" maxOccurs="11" />
+      <xs:element name="medio" type="fcion:jugador" maxOccurs="11" />
+    </xs:sequence>
   </xs:complexType>
 </xs:element>
+
 
 </xs:schema>
