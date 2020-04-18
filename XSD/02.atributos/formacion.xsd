@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  elementFormDefault="unqualified" targetNamespace="urn:xlmns:fcion">
+  elementFormDefault="qualified">
 
 <xs:element name="formacion">
   <xs:complexType>
@@ -24,6 +24,15 @@
         </xs:complexType>
       </xs:element>
       <xs:element name="medio">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="camiseta" type="xs:integer" />
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="delantero">
         <xs:complexType>
           <xs:simpleContent>
             <xs:extension base="xs:string">

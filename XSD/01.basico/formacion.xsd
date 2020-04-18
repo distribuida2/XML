@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  elementFormDefault="unqualified" targetNamespace="urn:xlmns:fcion">
+  elementFormDefault="qualified">
 <xs:element name="formacion">
   <xs:complexType>
-    <xs:all> <!-- all / choice / sequence -->
-      <xs:element name="arquero" type="xs:string" />
-      <xs:element name="defensor" type="xs:string"/>
-      <xs:element name="delantero" type="xs:string" minOccurs="0"/>
-      <xs:element name="medio" type="xs:string"/>
-    </xs:all>
+    <xs:sequence>
+      <xs:element name="arquero" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="defensor" type="xs:string" maxOccurs="10"/>
+      <xs:element name="medio" type="xs:string" maxOccurs="10" />
+      <xs:element name="delantero" type="xs:string" minOccurs="0" maxOccurs="10"/>
+    </xs:sequence>
   </xs:complexType>
 </xs:element>
 </xs:schema>
