@@ -31,7 +31,7 @@ function libxml_display_errors() {
 
 
 if (!isset($argv[1]) || !isset($argv[2])) {
-  echo "Hay que pasar el archivo con la ruta completa!";
+  echo "Hay que pasar dos archivos: el primero es el archivo XML, el segundo, el XML Schema!";
   exit(1);
 }
 
